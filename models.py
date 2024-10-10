@@ -1,5 +1,5 @@
 from pydantic import BaseModel, conint
-from typing import List
+from typing import List, Tuple
 
 class LedColor(BaseModel):
     red: conint(ge=0, le=255) = 255
@@ -19,4 +19,9 @@ class DisplayTextRequest(BaseModel):
 class BuzzerPlayRequest(BaseModel):
     note: int
     duration: float = 0.5
+
+class SongNote(BaseModel):
+    note: str
+    duration: float
+    color: Tuple[int, int, int]
 

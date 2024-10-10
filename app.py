@@ -1,7 +1,7 @@
 # app.py
 
 from fastapi import FastAPI
-from routers import leds, display, buzzer, sensors, buttons
+from routers import leds, display, buzzer, sensors, buttons, songs
 
 app = FastAPI(
     title="Rainbow HAT API",
@@ -15,6 +15,7 @@ app.include_router(display.router)
 app.include_router(buzzer.router)
 app.include_router(sensors.router)
 app.include_router(buttons.router)
+app.include_router(songs.router)
 
 # Optionally, add a root endpoint
 @app.get("/")
